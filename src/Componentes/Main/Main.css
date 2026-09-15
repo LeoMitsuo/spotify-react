@@ -241,3 +241,9 @@
     padding: 20px 40px;
   }
   /* FIM CARD ARTISTA */
+/* Mensagens de estado: carregando, erro e busca sem resultado */
+.feedback {
+  color: #b3b3b3;
+  font-size: 16px;
+  padding: 24px 0;
+}

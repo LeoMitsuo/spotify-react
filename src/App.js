@@ -1,20 +1,30 @@
+import { useMemo, useState } from 'react';
 import './App.css';
-import Head from '../src/Componentes/Head/Head'
-import Header from '../src/Componentes/Header/Header';
-import Footer from '../src/Componentes/Footer/Footer';
-import Main from '../src/Componentes/Main/Main';
-import Sidebar from '../src/Componentes/Sidebar/Sidebar';
-import Script from '../src/Componentes/Script';
+import Header from './Componentes/Header/Header';
+import Footer from './Componentes/Footer/Footer';
+import Main from './Componentes/Main/Main';
+import Sidebar from './Componentes/Sidebar/Sidebar';
+import useArtists from './hooks/useArtists';
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const { artists, status } = useArtists();
+
+  const isSearching = searchTerm.trim() !== '';
+
+  // Só recalcula quando o termo ou a lista mudam.
+  const results = useMemo(() => {
+    const term = searchTerm.trim().toLowerCase();
+    if (!term) return [];
+    return artists.filter((artist) => artist.name.toLowerCase().includes(term));
+  }, [searchTerm, artists]);
+
   return (
     <div>
-    <Head/>
-    <Header/>
-    <Main/>
-    <Sidebar/>
-    <Footer/>
-    <Script/>
+      <Header searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+      <Main isSearching={isSearching} results={results} status={status} />
+      <Sidebar />
+      <Footer />
     </div>
   );
 }
