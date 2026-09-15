@@ -4,11 +4,9 @@ Recriação da interface inicial do Spotify em React, com busca de artistas.
 
 > **Origem do projeto:** este projeto nasceu como exercício de uma imersão da Alura. Mais tarde eu voltei nele e fiz uma refatoração completa, documentada abaixo — a versão original tinha a busca quebrada e não era deployável.
 
-**[🔗 Ver o projeto no ar](COLE-O-LINK-DA-VERCEL-AQUI)**
+**[🔗 Ver o projeto no ar](https://spotify-react-umber.vercel.app/)**
 
-<!-- Substitua pelo print da tela depois do deploy:
 ![Tela inicial](./screenshot.png)
--->
 
 ---
 
